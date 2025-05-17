@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOAKOUMA KOBANGA YVON ANDRE - Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --dark: #121212;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --dark-gray: #343a40;
+            --success: #4bb543;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Montserrat', sans-serif;
+            
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--light);
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/photo.jpg') no-repeat center center/cover;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-family: var(--font-secondary);
+            font-weight: 700;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-family: var(--font-secondary);
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        /* Projects Section */
+        .projects {
+            background-color: #f8f9fa;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .project-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-family: var(--font-secondary);
+        }
+        
+        .project-info p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-family: var(--font-secondary);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--dark);
+            color: var(--light);
+        }
+        
+        .contact .section-title h2::after {
+            background-color: var(--light);
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-family: var(--font-secondary);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-family: var(--font-secondary);
+            color: var(--dark);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-primary);
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--light);
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">ZOAKOUMA<span>.</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#projects">Projets</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>ZOAKOUMA KOBANGA YVON ANDRE</h1>
+                <h2>Designer graphique / 3D artiste</h2>
+                <p>Créativité, innovation et excellence visuelle pour transformer vos idées en réalisations marquantes.</p>
+                <div class="btn-group">
+                    <a href="#projects" class="btn">Voir mes projets</a>
+                    <a href="#contact" class="btn btn-outline">Me contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>À propos de moi</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="img/yvon.jpg" alt="Zoakouma Kobanga Yvon André">
+                </div>
+                
+                <div class="about-text">
+                    <h3>Graphiste et artiste 3D basé à Abidjan</h3>
+                    <p>Je m'appelle Zoakouma Kobanga Yvon André, graphiste et artiste 3D basé à Abidjan. Titulaire d'une licence en création digitale, je transforme les idées en visuels forts, qu'ils soient en 2D ou en 3D.</p>
+                    <p>Mon univers allie créativité, sens du détail et innovation visuelle. Je travaille sur des projets variés : identité visuelle, design graphique, illustration, modélisation et rendu 3D.</p>
+                    <p>Attentif aux besoins de chaque client, je propose des créations sur mesure qui allient esthétisme et impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes projets / Réalisations</h2>
+            </div>
+            
+            <p class="text-center" style="margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Chaque projet est pour moi une nouvelle occasion de raconter une histoire visuelle forte. Voici une sélection de mes réalisations les plus marquantes, mêlant design graphique, illustration et création 3D.
+            </p>
+            
+            <div class="projects-grid">
+                <!-- Logo Design Projects -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="img/IMG-20250517-WA0006.jpg" alt="Amethyste & co">
+                    </div>
+                    <div class="project-info">
+                        <h3>Amethyste & co</h3>
+                        <p>Création d'un logo pour une entreprise immobilière ivoirienne.</p>
+                        <div class="project-tags">
+                            <span class="tag">Logo Design</span>
+                            <span class="tag">Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="img/IMG-20250517-WA0008.jpg" alt="Centre Hospitalier Régional de Bondoukou">
+                    </div>
+                    <div class="project-info">
+                        <h3>Centre Hospitalier de Bondoukou</h3>
+                        <p>Création d'un logo pour le centre hospitalier régional de Bondoukou.</p>
+                        <div class="project-tags">
+                            <span class="tag">Logo Design</span>
+                            <span class="tag">Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="img/IMG-20250517-WA0007.jpg" alt="Simye">
+                    </div>
+                    <div class="project-info">
+                        <h3>Simye</h3>
+                        <p>Création d'un logo pour une boutique de produits de beauté tanzanienne.</p>
+                        <div class="project-tags">
+                            <span class="tag">Logo Design</span>
+                            <span class="tag">Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Poster Design Projects -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="img/IMG-20250517-WA0013.jpg" alt="SOCOCE CI Journée de la femme">
+                    </div>
+                    <div class="project-info">
+                        <h3>SOCOCE CI - Journée de la femme</h3>
+                        <p>Affiche publicitaire pour SOCOCE CI célébration de la journée de la femme.</p>
+                        <div class="project-tags">
+                            <span class="tag">Affiche</span>
+                            <span class="tag">Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="img/IMG-20250517-WA0017.jpg" alt="SOCOCE CI Ramadan">
+                    </div>
+                    <div class="project-info">
+                        <h3>SOCOCE CI - Ramadan</h3>
+                        <p>Affiche publicitaire pour SOCOCE CI promotion pour la fête de Ramadan.</p>
+                        <div class="project-tags">
+                            <span class="tag">Affiche</span>
+                            <span class="tag">Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="img/IMG-20250517-WA0014.jpg" alt="Damaris Coulibaly">
+                    </div>
+                    <div class="project-info">
+                        <h3>Damaris Coulibaly</h3>
+                        <p>Campagne publicitaire pour Miss 2.0.</p>
+                        <div class="project-tags">
+                            <span class="tag">Affiche</span>
+                            <span class="tag">Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 3D Projects -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="img/IMG-20250517-WA0004.jpg" alt="Projet 3D 1">
+                    </div>
+                    <div class="project-info">
+                        <h3>Modélisation 3D</h3>
+                        <p>Modélisation, éclairage, texture et rendu 3D.</p>
+                        <div class="project-tags">
+                            <span class="tag">3D</span>
+                            <span class="tag">3Ds MAX</span>
+                            <span class="tag">V-RAY</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="img/IMG-20250517-WA0012.jpg" alt="Projet 3D 2">
+                    </div>
+                    <div class="project-info">
+                        <h3>Modélisation 3D</h3>
+                        <p>Modélisation, éclairage, texture et rendu 3D.</p>
+                        <div class="project-tags">
+                            <span class="tag">3D</span>
+                            <span class="tag">3Ds MAX</span>
+                            <span class="tag">V-RAY</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="img/IMG-20250517-WA0011.jpg" alt="Projet 3D 3">
+                    </div>
+                    <div class="project-info">
+                        <h3>Modélisation 3D</h3>
+                        <p>Modélisation, éclairage, texture et rendu 3D.</p>
+                        <div class="project-tags">
+                            <span class="tag">3D</span>
+                            <span class="tag">3Ds MAX</span>
+                            <span class="tag">V-RAY</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes services</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Identité visuelle</h3>
+                    <p>Création de logos, chartes graphiques et branding complet pour une identité visuelle forte et cohérente.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>Design graphique</h3>
+                    <p>Conception d'affiches, flyers, visuels pour réseaux sociaux et publicité avec un impact visuel immédiat.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Illustration digitale</h3>
+                    <p>Création d'illustrations uniques de personnages, objets et compositions artistiques sur mesure.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Création 3D</h3>
+                    <p>Modélisation, texturing et rendu d'objets, scènes et personnages en 3D pour divers supports.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Direction artistique</h3>
+                    <p>Accompagnement visuel de projets créatifs avec une vision artistique cohérente et impactante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-moi</h2>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Envie de collaborer ou de me confier un projet ?</h3>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>andredasha2018@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Téléphone</h4>
+                                <p>+225 0767628829</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Localisation</h4>
+                                <p>Abidjan – disponible à distance et en présentiel</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Envoyez-moi un message</h3>
+                    <form action="send.php" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" placeholder="Sujet" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" placeholder="Votre message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://twitter.com/andre_dasha" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://wa.me/2250767628829" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:andredasha2018@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/KOBANGA-YVON-ANDRE-ZOAKOUMA-71452835a?" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="copyright">© 2023 ZOAKOUMA KOBANGA YVON ANDRE. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add shadow to header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.boxShadow = 'var(--shadow)';
+            }
+        });
+    </script>
+</body>
+</html>
